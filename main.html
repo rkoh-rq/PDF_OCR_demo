@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            body{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+
+            #div_canvas {
+                border: 3px solid black;
+                border-radius: 10px;
+                display: flex;
+            }
+            .rectangle {
+                border: 1px solid #FF0000;
+                position: absolute;
+            }
+            button {
+                outline :0;
+                border: none;
+                border-radius: 3px;
+                color: white;
+                background: black;
+                width: 100px;
+                height: 40px;
+                transition: all .1s ease-in-out;
+            }
+            button:hover {
+                background:  none;
+                border: 3px solid black;
+                color: black;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <script src='https://unpkg.com/tesseract.js@v2.0.0/dist/tesseract.min.js'></script>
+        <div id="pdf_holder">
+            <input type="file" id="uploader">
+            <div id="div_canvas">
+                <canvas id="pdf_canvas"></canvas>
+            </div>
+            <div class="container">
+                <button id="prev_page">Previous Page</button>
+                <button id="next_page">Next Page</button>
+                <span id="current_page_num"></span>
+                    of
+                <span id="total_page_num"></span>
+                    
+                <input type="text" id="page_num">
+                <button id="go_to_page">Go To Page</button>
+            </div>
+        </div>
+        <form id="results">Results here
+            <input id="sender"/>
+            <input id="invoice_no"/>
+            <input id="data"/>
+        </form>
+        <!-- Replace pdf.js with downloaded pdf.js file -->
+        
+        <script src="ts/pdf.js" charset="utf-8"></script>
+        <script src="script/script_pdf.js" charset="utf-8"></script>
+        <script src="script/script_draw.js"></script>
+        <script src="script/script_form.js"></script>
+        <script>
+            initDraw(document.getElementById('div_canvas'));
+        </script>
+    </body>
+</html>
